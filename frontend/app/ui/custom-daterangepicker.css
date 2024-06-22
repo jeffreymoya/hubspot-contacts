@@ -1,0 +1,6 @@
+.daterangepicker .calendar-table th, .daterangepicker .calendar-table td,
+.daterangepicker .drp-buttons .btn,
+.daterangepicker .ranges li{
+    font-size: 14px;
+    font-family: inherit;
+}

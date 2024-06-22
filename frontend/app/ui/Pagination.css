@@ -1,0 +1,32 @@
+.react-paginate {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.react-paginate li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.react-paginate li a:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.react-paginate li.active a {
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 0.25rem;
+}
+
+.react-paginate li.disabled a {
+    color: #bdbdbd;
+    cursor: not-allowed;
+}

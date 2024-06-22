@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 250, 250, 250;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .table-header {
+    @apply border-b py-4 px-4 text-left font-normal bg-gray-50;
+  }
+
+  .table-col {
+    @apply border-b py-6 px-4;
+  }
+
+  .standard-button {
+    @apply bg-blue-500 text-white rounded px-4 py-2
+  }
+
+  .standard-muted-button {
+    @apply border border-gray-400 font-bold rounded px-4 py-2;
+  }
+}
+
+
