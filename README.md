@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hubspot Contacts
 
-## Getting Started
+### Installing
 
-First, run the development server:
+
+#### Backend
+
+Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+Install the PHP dependencies:
+
+```bash
+composer install
+```
+
+Start the PHP server:
+
+```bash
+php -S localhost:8000 -t public
+```
+
+#### Frontend
+
+Navigate to the frontend directory:
+
+```bash
+cd ../frontend
+```
+
+Install the Node.js dependencies:
+
+```bash
+npm install
+```
+
+Start the React development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running hubspot_sync.php
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Adding hubspot_sync.php to Cron
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Open the crontab file:
 
-## Learn More
+```bash
+crontab -e
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Add a new line to the crontab file to run `hubspot_sync.php` every hour. Replace `/path/to/php` and `/path/to/hubspot_sync.php` with the actual paths to your PHP executable and `hubspot_sync.php` file:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+0 * * * * /path/to/php /path/to/hubspot_sync.php
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Save and close the crontab file. The new cron job will start running at the specified frequency.
 
-## Deploy on Vercel
+### Running hubspot_sync.php Manually
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To run `hubspot_sync.php` manually, you can use the PHP CLI (Command Line Interface). Here's how you can do it:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Open a terminal.
+
+2. Navigate to the directory containing `hubspot_sync.php`:
+
+```bash
+cd backend/common
+```
+
+3. Run `hubspot_sync.php` with the PHP CLI:
+
+```bash
+php hubspot_sync.php
+```
+
